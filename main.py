@@ -25,7 +25,7 @@ def get_weather():
                 # Check if 'main' key exists in weather_current data
                 if 'main' in weather_current and 'weather' in weather_current:
                     # Update the labels with the weather data
-                    current_lbl['text'] = f"Current: {weather_current['main']['temp']}°C, {weather_current['weather'][0]['description']}" #type:ignore
+                    current_lbl['text'] = f"Current: {weather_current['main']['temp']}°C, {weather_current['weather'][0]['description']}" 
 
                     # Display weather icons
                     current_icon_url = f"http://openweathermap.org/img/w/{weather_current['weather'][0]['icon']}.png"
@@ -41,25 +41,25 @@ def get_weather():
                     # Create a simple temperature graph
                     create_temperature_graph(weather_forecast)
                 else:
-                    current_lbl['text'] = "Weather data not available" #type:ignore
+                    current_lbl['text'] = "Weather data not available" 
             except KeyError as e:
-                current_lbl['text'] = f"Error: {e}" #type:ignore
+                current_lbl['text'] = f"Error: {e}" 
         else:
-            current_lbl['text'] = "Failed to fetch weather data" #type:ignore
+            current_lbl['text'] = "Failed to fetch weather data"
     else:
-        current_lbl['text'] = "Please enter a city name" #type:ignore
+        current_lbl['text'] = "Please enter a city name"
 def search():
     city=city_entry.get()
     result=get_weather()
     if result is None:
         return
-    icon_url, temperature, description, city, country = result # type: ignore
+    icon_url, temperature, description, city, country = result #type:ignore
     location_label.configure(text=f"{city}, {country}")
 
     image=Image.open(requests.get(icon_url, stream=True).raw)
     icon=ImageTk.PhotoImage(image)
     icon_label.configure(image=icon)
-    icon_label.image=icon # type: ignore
+    icon_label.image=icon  # type: ignore
 
     temperature_label.configure(text=f"Temperature: {temperature:.2f}°C")
     description_label.configure(text=f"Description: {description}")
@@ -71,7 +71,7 @@ def load_current_icon(url):
     img = img.resize((50, 50))
     current_icon = ImageTk.PhotoImage(img)
     current_icon_label.configure(image=current_icon)
-    current_icon_label.image = current_icon # type: ignore
+    current_icon_label.image = current_icon  # type: ignore
 
 def load_forecast_icon(url, index):
     response = requests.get(url, stream=True)
@@ -114,7 +114,7 @@ window.geometry("1280x720")
 # Create the entry field and search button
 city_entry=tkb.Entry(window, font="Helvetica, 18")
 city_entry.pack(pady=10)
-search_button=tkb.Button(window, text="Search", command=search, bootstyle="warning") # type: ignore
+search_button=tkb.Button(window, text="Search", command=search, bootstyle="warning")  # type: ignore
 search_button.pack(pady=10)
 
 # Create the label for location
