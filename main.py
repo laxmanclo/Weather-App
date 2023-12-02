@@ -114,7 +114,7 @@ window.geometry("1280x720")
 # Create the entry field and search button
 city_entry=tkb.Entry(window, font="Helvetica, 18")
 city_entry.pack(pady=10)
-search_button=tkb.Button(window, text="Search", command=search, bootstyle="warning")  # type: ignore
+search_button=tkb.Button(window, text="Search", command=search, bootstyle="warning", cursor="hand2")  # type: ignore
 search_button.pack(pady=10)
 
 # Create the label for location
