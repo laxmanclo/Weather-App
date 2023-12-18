@@ -13,7 +13,7 @@ def get_weather():
     city = city_entry.get()  # Get the city from the entry field
     api_key = "API_KEY"
     if city: # Check if a city name is provided
-        # Make a GET request to the OpenWeatherMap API (replace 'your_api_key' with your actual API key)
+        # Make a GET request to the OpenWeatherMap API (replace 'API_KEY' with your actual API key)
         response_current = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric')
         response_forecast = requests.get(f'http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric')
         
