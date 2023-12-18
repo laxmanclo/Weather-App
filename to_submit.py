@@ -83,7 +83,7 @@ def Login():
                     global current_unit
                     
                     city = city_entry.get()
-                    api_key = "3a951967f8e78b845a889f74e243577c" # Replace with your API key
+                    api_key = "API_KEY" # Replace with your API key
                     url = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric"
                     
                     try:
