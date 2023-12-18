@@ -11,10 +11,11 @@ import io
 def get_weather():
     
     city = city_entry.get()  # Get the city from the entry field
+    api_key = "API_KEY"
     if city: # Check if a city name is provided
         # Make a GET request to the OpenWeatherMap API (replace 'your_api_key' with your actual API key)
-        response_current = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid=36e819fd6c1f509a31c217f689258890&units=metric')
-        response_forecast = requests.get(f'http://api.openweathermap.org/data/2.5/forecast?q={city}&appid=36e819fd6c1f509a31c217f689258890&units=metric')
+        response_current = requests.get(f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric')
+        response_forecast = requests.get(f'http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={api_key}&units=metric')
         
         # Check if the API request was successful (status code 200)
         if response_current.status_code == 200 and response_forecast.status_code == 200:
