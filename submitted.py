@@ -244,9 +244,9 @@ def Registration():
         name = f.get()
         passw = g.get()
         mycon = mysql.connect(host='localhost',
-                              user='root',
-                              password='hax@mysql',
-                              database='minipy')
+                              user='user',
+                              password='your_password',
+                              database='db_name')
         mycur = mycon.cursor()
         mycur.execute('insert into data values(%s,%s,%s)',(email, name, passw))
         mycon.commit()
